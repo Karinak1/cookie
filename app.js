@@ -1,5 +1,5 @@
 // DOM Nodes
-const cookieBtn = document.getElementById('cookie-btn');
+const cookieBtn = document.getElementById('image');
 const cookieDisplay = document.getElementById('cookie-display');
 const cpsDisplay = document.getElementById('cps-display');
 const grandmaBtn = document.getElementById('grandma-btn');
