@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  h1 {
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 50px;
+  }
+  #image {
+    height: 300px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    margin-left: 40%;
+    background: url(./Cookie-web\ 50.jpg);
+    text-align: center;
+    border: none;
+  }
+}
