@@ -1,36 +1,60 @@
-// DOM Nodes
 const cookieBtn = document.getElementById('image');
 const cookieDisplay = document.getElementById('cookie-display');
 const cpsDisplay = document.getElementById('cps-display');
-const grandmaBtn = document.getElementById('grandma-btn');
+const Btn = document.getElementById('btn');
+const Audio1 = document.getElementById('audio');
+const Reset = document.getElementById('reset');
 
-// Game State
-let cookies = 0; // TODO get from local storage
-let cps = 0; // TODO need to get from local storage
-
-// Game Logic
-// every second, increase cookies by cps
-setInterval(function () {
-  cookies = cookies + cps;
-  cookieDisplay.textContent = cookies;
-  // TODO update local storage
-}, 1000);
-
-// get a cookie when i click the button
 cookieBtn.addEventListener('click', function () {
-  cookies = cookies + 1;
-  cookieDisplay.textContent = cookies;
-  // TODO update local storage
+  Audio1.play();
+});
+Btn.addEventListener('click', function () {
+  Audio1.play();
+});
+Reset.addEventListener('click', function () {
+  Audio1.play();
 });
 
-// upgrade
-grandmaBtn.addEventListener('click', function () {
-  // make sure they can afford the upgrade
+function display() {
+  cookieDisplay.textContent = cookies;
+}
+let cookies = localStorage.getItem('cookie') || 0;
+cookies = Number(cookies);
+let cps = localStorage.getItem('cps') || 0;
+cps = Number(cps);
+
+setInterval(function () {
+  cookies += cps;
+  display();
+  localStorage.setItem('cookie', cookies);
+}, 2000);
+
+cookieBtn.addEventListener('click', function () {
+  cookies++;
+  display();
+  localStorage.setItem('cookie1', cookies);
+});
+
+Btn.addEventListener('click', function () {
   if (cookies >= 10) {
-    cps = cps + 1;
+    cps++;
     cookies = cookies - 10;
-    cookieDisplay.textContent = cookies;
+    display();
     cpsDisplay.textContent = cps;
-    // TODO update local storage
+    localStorage.setItem('cps', cps);
   }
 });
+
+document.getElementById('reset').addEventListener('click', function () {
+  if (cookies >= 100) {
+    cookies = 0;
+    cps = 10;
+  }
+  alert('game has been reset');
+});
+
+// let cookies = 0;
+// cookies = Number(cookies);
+// let cps = 0;
+// cps = Number(cps);
+// localStorage.clear();
